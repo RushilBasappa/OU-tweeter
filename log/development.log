@@ -45669,3 +45669,353 @@ Processing by StaticPagesController#home as HTML
   Rendered layouts/_header.html.erb (4.3ms)
   Rendered layouts/_footer.html.erb (0.9ms)
 Completed 200 OK in 165ms (Views: 158.0ms | ActiveRecord: 0.8ms)
+  [1m[36m (90.1ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "picture" varchar) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (76.4ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (76.6ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (110.0ms)[0m  CREATE TABLE "relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (109.9ms)[0m  [1mCREATE  INDEX "index_relationships_on_followed_id" ON "relationships" ("followed_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+
+  [1m[36m (109.8ms)[0m  [1mCREATE UNIQUE INDEX "index_relationships_on_follower_id_and_followed_id" ON "relationships" ("follower_id", "followed_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+[0m
+  [1m[35m (108.9ms)[0m  CREATE  INDEX "index_relationships_on_follower_id" ON "relationships" ("follower_id")
+  [1m[36m (105.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar, "admin" boolean DEFAULT 'f', "activation_digest" varchar, "activated" boolean DEFAULT 'f', "activated_at" datetime, "reset_digest" varchar, "reset_sent_at" datetime) [0m
+  [1m[35m (100.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (84.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (99.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (74.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160307053632')
+  [1m[36m (87.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217100856')[0m
+  [1m[35m (98.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160303071919')
+  [1m[36m (77.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160303075309')[0m
+  [1m[35m (87.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160303061239')
+  [1m[36m (87.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160301062122')[0m
+  [1m[35m (87.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217061053')
+  [1m[36m (87.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217095749')[0m
+  [1m[35m (76.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160306105456')
+  [1m[36m (95.7ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "picture" varchar) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (76.5ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (87.4ms)[0m  [1mCREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")[0m
+  [1m[35m (98.9ms)[0m  CREATE TABLE "relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (110.0ms)[0m  [1mCREATE  INDEX "index_relationships_on_followed_id" ON "relationships" ("followed_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+
+  [1m[36m (120.5ms)[0m  [1mCREATE UNIQUE INDEX "index_relationships_on_follower_id_and_followed_id" ON "relationships" ("follower_id", "followed_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+[0m
+  [1m[35m (108.8ms)[0m  CREATE  INDEX "index_relationships_on_follower_id" ON "relationships" ("follower_id")
+  [1m[36m (120.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar, "admin" boolean DEFAULT 'f', "activation_digest" varchar, "activated" boolean DEFAULT 'f', "activated_at" datetime, "reset_digest" varchar, "reset_sent_at" datetime) [0m
+  [1m[35m (121.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (133.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (110.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (67.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160307053632')
+  [1m[36m (83.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217100856')[0m
+  [1m[35m (98.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160303071919')
+  [1m[36m (80.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160303075309')[0m
+  [1m[35m (87.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160303061239')
+  [1m[36m (87.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160301062122')[0m
+  [1m[35m (87.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160217061053')
+  [1m[36m (76.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160217095749')[0m
+  [1m[35m (76.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160306105456')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "admin", "activated", "activated_at", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["name", "Example User"], ["email", "example@railstutorial.org"], ["password_digest", "$2a$10$ZXWahnEZlHBoz5mRrc8U4ef/S4Jfptyw421hvHGRzDmnX4Pa2DdES"], ["admin", "t"], ["activated", "t"], ["activated_at", "2016-04-28 18:03:33.495829"], ["created_at", "2016-04-28 18:03:33.620473"], ["updated_at", "2016-04-28 18:03:33.620473"], ["activation_digest", "$2a$10$vcOIgd09m60dCrkPc27SF.sMStfydEf8kOoGyJzRuY8mdYD4ZERtm"]]
+  [1m[36m (76.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-1@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Craig Rau"], ["email", "example-1@railstutorial.org"], ["password_digest", "$2a$10$/9VjPI58pnsRMsgPB36mv.g0EjguQekIjqzgtcPfUTZ7SMQiltGna"], ["created_at", "2016-04-28 18:03:34.252566"], ["updated_at", "2016-04-28 18:03:34.252566"], ["activation_digest", "$2a$10$S2TG0/FRVd7KoMuJIWNeh.6LVrjFvjFOLNk64qQ4QESAPtXeChSpe"]]
+  [1m[36m (153.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-2@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Hillard Reinger PhD"], ["email", "example-2@railstutorial.org"], ["password_digest", "$2a$10$y58KYN3U4mSLgCOHtwwCreCxcIGW7h6yHs2Tpz9cs4XBcxFDhB3Eu"], ["created_at", "2016-04-28 18:03:34.665954"], ["updated_at", "2016-04-28 18:03:34.665954"], ["activation_digest", "$2a$10$zwIu0iQquI7g1eV0eFvjle4pTYTBOSkWgfQfbgVSv/qBSKfT8wFjW"]]
+  [1m[36m (77.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-3@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Rebeca Pfeffer"], ["email", "example-3@railstutorial.org"], ["password_digest", "$2a$10$0JIhdsemaTY9nLReLsGtBOJzMr9wSaRGq7EA.4G2O9zEshSx8HHIm"], ["created_at", "2016-04-28 18:03:35.017962"], ["updated_at", "2016-04-28 18:03:35.017962"], ["activation_digest", "$2a$10$9fKhRh4g2qBa3UCA.zRZmeIrMt7s0iUWvcKlDjL0wXMsA4yj1FlmW"]]
+  [1m[36m (98.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-4@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dr. Jerad Block"], ["email", "example-4@railstutorial.org"], ["password_digest", "$2a$10$aixAIvPJOODtytvjgArBiOMw59xHfXKSBC0/rNJYT5A8UxpHZSjlS"], ["created_at", "2016-04-28 18:03:35.392410"], ["updated_at", "2016-04-28 18:03:35.392410"], ["activation_digest", "$2a$10$YxM7VUJjnZKw9jYzSu4SPu7lBLrHab.ib5pNcbp7Ai.VDi7kIppm6"]]
+  [1m[36m (126.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-5@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Breanna Waelchi"], ["email", "example-5@railstutorial.org"], ["password_digest", "$2a$10$5yLmYpl4dDgyfqMyx7q5tugDtqDnz1aok6af3XA6.AVWCVFXGrsW."], ["created_at", "2016-04-28 18:03:35.788385"], ["updated_at", "2016-04-28 18:03:35.788385"], ["activation_digest", "$2a$10$RLiq6tbD1i4tVu8Xxof/SeGnamuSpYxhIpjsUv3K3Cm8E7atWyA.S"]]
+  [1m[36m (90.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-6@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Isaiah Hirthe"], ["email", "example-6@railstutorial.org"], ["password_digest", "$2a$10$5Zel3aj/IceIKF0ky.csoO4ui6WYiOlU1JNWG9SiF1dmyhVBoHEaS"], ["created_at", "2016-04-28 18:03:36.147564"], ["updated_at", "2016-04-28 18:03:36.147564"], ["activation_digest", "$2a$10$JM1m9CjI.flmn7BXqiVIhO/4Rk487v7JB/jhZ3YckZ2dtR01Ux2rG"]]
+  [1m[36m (115.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-7@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Karen Beahan I"], ["email", "example-7@railstutorial.org"], ["password_digest", "$2a$10$3A7U7.rXCZYUOJ6.SaXpSufPcGcO3wBM3mdu/R0tllm21qhu7cdry"], ["created_at", "2016-04-28 18:03:36.537050"], ["updated_at", "2016-04-28 18:03:36.537050"], ["activation_digest", "$2a$10$CwhHZ2ZQrWu64mGEI.gTR.OJEjBSGQ4bsere6GEUkuQSXux/qjo3e"]]
+  [1m[36m (98.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-8@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Miss Saul Hyatt"], ["email", "example-8@railstutorial.org"], ["password_digest", "$2a$10$vt06NeIEqM/nLc/fWf6aCelUxvzKNy1KluXF5OsvPqy0mccdl5WqW"], ["created_at", "2016-04-28 18:03:36.904961"], ["updated_at", "2016-04-28 18:03:36.904961"], ["activation_digest", "$2a$10$cg9E8CMfMn.4Y2wQQWyUHe3M47OnIKZG6nTun9vBIx.6ZyGNf0dM."]]
+  [1m[36m (108.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-9@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Ms. Albertha Reilly"], ["email", "example-9@railstutorial.org"], ["password_digest", "$2a$10$3c.yUQnh378X7Jgem5qZ6es29KJaS9syOmxPnvkjCO/jMf75W5QfC"], ["created_at", "2016-04-28 18:03:37.284656"], ["updated_at", "2016-04-28 18:03:37.284656"], ["activation_digest", "$2a$10$dqjMSfPy5LMoL.KWKRdNCOKYQ879.oZMiYEiulQsldRIi8ufMc1DG"]]
+  [1m[36m (86.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-10@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Ellen Rice"], ["email", "example-10@railstutorial.org"], ["password_digest", "$2a$10$oUvECMZ6B9HigjpSxroKJOE8L9VSunZNFhXwGyHrVG/wOF/RBjk.i"], ["created_at", "2016-04-28 18:03:37.633329"], ["updated_at", "2016-04-28 18:03:37.633329"], ["activation_digest", "$2a$10$TyAXBkl0Mt7F9caqnJ.j8u.MHY.C7voGmt.iSzu2UQbCz/zURUhea"]]
+  [1m[36m (75.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-11@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Oran Ernser"], ["email", "example-11@railstutorial.org"], ["password_digest", "$2a$10$8ZlGNtnTg9FDhFsgTE3HLuIMXCz4r9ioZE6EcX67RsndXXqgjUtNa"], ["created_at", "2016-04-28 18:03:37.978535"], ["updated_at", "2016-04-28 18:03:37.978535"], ["activation_digest", "$2a$10$.BP.PYvyk6SE9aAWjKNi9OdNvGqVgYa0Ryoioe3BHAkkvh6VLcSOa"]]
+  [1m[36m (77.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-12@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Dee Monahan DVM"], ["email", "example-12@railstutorial.org"], ["password_digest", "$2a$10$yEw08jmQTXbLPt6iD5wQC.S0GIC/RjTSlW/0T.RJECu28C7M/o0ym"], ["created_at", "2016-04-28 18:03:38.330754"], ["updated_at", "2016-04-28 18:03:38.330754"], ["activation_digest", "$2a$10$xDZd/Y4l0HLukwIK7.O94e/AanmfdlwPpBLbKc3iKRzFwhFJq0Noe"]]
+  [1m[36m (101.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-13@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Taryn Tromp"], ["email", "example-13@railstutorial.org"], ["password_digest", "$2a$10$LjP6j12oSwcPFEeOY9vTVeZRMQRZcH74o.vwl5hRGL6o1rQsdK2Sm"], ["created_at", "2016-04-28 18:03:38.709086"], ["updated_at", "2016-04-28 18:03:38.709086"], ["activation_digest", "$2a$10$Z1xah1n.GyLW4pQNQd53J.8q8LuKvQGiN2tOaN6SmHf7lesI4XOo."]]
+  [1m[36m (83.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-14@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Mrs. Adrian Ferry"], ["email", "example-14@railstutorial.org"], ["password_digest", "$2a$10$sHu37BV4pW4T4miGKxm20eqQ9bUrYoZVCYmcKKqdC31yv/8gzGGxW"], ["created_at", "2016-04-28 18:03:39.068892"], ["updated_at", "2016-04-28 18:03:39.068892"], ["activation_digest", "$2a$10$1HydoAvAEIxODhd55jUm6OXt9uVfCz5pCo33y12XyaN3xhwvWrgni"]]
+  [1m[36m (86.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-15@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Roberta Beatty"], ["email", "example-15@railstutorial.org"], ["password_digest", "$2a$10$O2O0HdPM5vnjtvK.TTSBb.r8fkJFebitpey5sHVByZy3tog.6QDcO"], ["created_at", "2016-04-28 18:03:39.431277"], ["updated_at", "2016-04-28 18:03:39.431277"], ["activation_digest", "$2a$10$g5.THwieg5K1zsVwttO4mOsqezOh6h7BjfhuG.VQLwg7fNyhcjsiO"]]
+  [1m[36m (79.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-16@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Eliza Schmeler V"], ["email", "example-16@railstutorial.org"], ["password_digest", "$2a$10$7r0ABOAqro8Z.9v8kYQIk.zRfffwpwPePcaOpubmhoQHNq8zZ91Bq"], ["created_at", "2016-04-28 18:03:39.782774"], ["updated_at", "2016-04-28 18:03:39.782774"], ["activation_digest", "$2a$10$x/zN5cSgfvKMs2IohIS14eM3JAuSejKasQUb/VGJJD5rt062pUhBi"]]
+  [1m[36m (118.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-17@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Larry Corkery"], ["email", "example-17@railstutorial.org"], ["password_digest", "$2a$10$Ff3zqyi1IXwwTj/jwHfaRuvmdIHLdCyL/AMZGateufqHbib090Zz2"], ["created_at", "2016-04-28 18:03:40.176920"], ["updated_at", "2016-04-28 18:03:40.176920"], ["activation_digest", "$2a$10$ZzlRheeJ2/dX5.nKQVDTaeMFVB05j14iJSyuVGm1UPnlVMxcHyPly"]]
+  [1m[36m (90.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-18@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Ivy Hackett"], ["email", "example-18@railstutorial.org"], ["password_digest", "$2a$10$Nd474rDD1ChLc0/xwv7FfeqWUABWJPoR4TQvJm9WKV1B96H2Tj2ki"], ["created_at", "2016-04-28 18:03:40.542718"], ["updated_at", "2016-04-28 18:03:40.542718"], ["activation_digest", "$2a$10$G689bkW1bsMKCsiFjXM.r.ELrFJN4TUAtX8Dmi8XI2ds0DD.hFspu"]]
+  [1m[36m (87.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-19@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Haylee Streich"], ["email", "example-19@railstutorial.org"], ["password_digest", "$2a$10$29YxWFxbck275qK/8QbB8ubIbvxddxrNlGeI6g.LXZkRRlRbv4F7S"], ["created_at", "2016-04-28 18:03:40.905798"], ["updated_at", "2016-04-28 18:03:40.905798"], ["activation_digest", "$2a$10$wqypd9l6UeA0weN6ONBFKepYN//C7MadvJfrip.fPKfrRM6y8H.RS"]]
+  [1m[36m (88.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-20@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Orie Sawayn"], ["email", "example-20@railstutorial.org"], ["password_digest", "$2a$10$B7928fEOaLFkEOozapk1QuNH3lm.idgnpJ3j9LmtYnuK/vH6zUM8O"], ["created_at", "2016-04-28 18:03:41.269592"], ["updated_at", "2016-04-28 18:03:41.269592"], ["activation_digest", "$2a$10$gtXtUS1NNtwgQqC2uZSszuZDBgwuLanV0iKWOa1ReL/NshYkrv2X6"]]
+  [1m[36m (340.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-21@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Trycia Grimes"], ["email", "example-21@railstutorial.org"], ["password_digest", "$2a$10$Lbrgl0cTbDzyKsYpmDZgVunUfyKLLfNwVXB1Bz.WiooFbMo6Oiqiu"], ["created_at", "2016-04-28 18:03:41.886418"], ["updated_at", "2016-04-28 18:03:41.886418"], ["activation_digest", "$2a$10$7yC.jJ60OojowWY5z69BLukNT9IYnFif556nxXcyuPm6.Mgt0y4am"]]
+  [1m[36m (76.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-22@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Anya Ullrich"], ["email", "example-22@railstutorial.org"], ["password_digest", "$2a$10$BADOwweaxRZ/mAt5m8bUKe4DEO02.RZxc2uBbs.S1400z2mSYN6Iu"], ["created_at", "2016-04-28 18:03:42.237855"], ["updated_at", "2016-04-28 18:03:42.237855"], ["activation_digest", "$2a$10$1EUXVDnMSySJIRLkq2PGGOByil/SH/9B59p2CXHzXkAS60iijJwXm"]]
+  [1m[36m (76.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-23@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "Daphnee Hintz"], ["email", "example-23@railstutorial.org"], ["password_digest", "$2a$10$BoC4Zm/YFPeDPAsrWIFi5OeBdOpla3Vwc55XiLmOI24VF2RHJBDJ6"], ["created_at", "2016-04-28 18:03:42.579458"], ["updated_at", "2016-04-28 18:03:42.579458"], ["activation_digest", "$2a$10$KJRz8pGInn.ORNkCzcuD/eDCrOxU2YYBXEFgDbcxVpm37XTsMCL9O"]]
+  [1m[36m (68.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-24@railstutorial.org') LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at", "activation_digest") VALUES (?, ?, ?, ?, ?, ?)  [["name", "D'angelo Renner"], ["email", "example-24@railstutorial.org"], ["password_digest", "$2a$10$dy02g5plBIfC9dWXEZRgYOpUuHSOQi9wl7R6Nhp9WPeT15BUvuZxW"], ["created_at", "2016-04-28 18:03:42.891053"], ["updated_at", "2016-04-28 18:03:42.891053"], ["activation_digest", "$2a$10$PCnSezS0A7yOd9CMOoviqO318wly9zJZ7tEP2xBIKdMxVqx.ou9/S"]]
+  [1m[36m (132.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('example-25@railstutorial.org') LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (156.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (76.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20160217061053)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160217061053"]]
+  [1m[35m (84.0ms)[0m  commit transaction
+Migrating to AddIndexToUsersEmail (20160217095749)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160217095749"]]
+  [1m[35m (98.4ms)[0m  commit transaction
+Migrating to AddPasswordDigestToUsers (20160217100856)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "password_digest" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160217100856"]]
+  [1m[35m (79.9ms)[0m  commit transaction
+Migrating to AddAdminToUsers (20160301062122)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "admin" boolean DEFAULT 'f'
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160301062122"]]
+  [1m[35m (62.3ms)[0m  commit transaction
+Migrating to AddActivationToUsers (20160303061239)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "activation_digest" varchar
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "activated" boolean DEFAULT 'f'[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "activated_at" datetime
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160303061239"]]
+  [1m[35m (61.1ms)[0m  commit transaction
+Migrating to AddResetToUsers (20160303071919)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "users" ADD "reset_digest" varchar
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "reset_sent_at" datetime[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160303071919"]]
+  [1m[36m (61.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateMicroposts (20160303075309)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_microposts_on_user_id_and_created_at" ON "microposts" ("user_id", "created_at")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160303075309"]]
+  [1m[35m (112.3ms)[0m  commit transaction
+Migrating to AddPictureToMicroposts (20160306105456)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "microposts" ADD "picture" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160306105456"]]
+  [1m[35m (64.3ms)[0m  commit transaction
+Migrating to CreateRelationships (20160307053632)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_relationships_on_follower_id" ON "relationships" ("follower_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE  INDEX "index_relationships_on_followed_id" ON "relationships" ("followed_id")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "index_relationships_on_follower_id_and_followed_id" ON "relationships" ("follower_id", "followed_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160307053632"]]
+  [1m[35m (90.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id_and_created_at' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_microposts_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id_and_followed_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_followed_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_relationships_on_follower_id' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
