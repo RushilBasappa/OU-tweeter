@@ -13,7 +13,10 @@ $gray-medium-light: #eaeaea;
 //Universal
 
 body {
-  padding-top : 60px;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+   padding-top : 60px;
+  background-color :#f5f8fa;
 }
 section {
   overflow: auto;
@@ -112,8 +115,19 @@ footer {
 /* sidebar */
 
 aside {
+  .pro_border{
+    height: 214px;
+    width: 214px;
+    background-color: white;
+    padding: 6px;
+    border-radius: 12px;
+border: 1px solid #e1e8ed;
+  }
   section.user_info {
     margin-top: 20px;
+    .gravatar{
+      border-radius: 8px;
+    }
   }
   section {
     padding: 10px 0;
@@ -233,7 +247,7 @@ input {
   list-style: none;
   padding: 0;
   li {
-    padding: 10px 0;
+    padding: 20px 0;
     border-top: 1px solid #e8e8e8;
   }
   .user {
@@ -274,3 +288,9 @@ span.picture {
   }
 }
 
+
+.microblock{
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #e1e8ed; 
+}

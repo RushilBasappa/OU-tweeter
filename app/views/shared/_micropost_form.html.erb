@@ -1,12 +1,11 @@
 <%= form_for(@micropost, html: { multipart: true }) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    <%= f.text_area :content, placeholder: "Compose new micropost...", :id => "textarea" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
   <span class="picture">
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
+  <%= f.submit "Post", class: "btn btn-primary", :id => "post" %>
 <% end %>
 
 <script type="text/javascript">
@@ -15,5 +14,15 @@ $('#micropost_picture').bind('change', function() {
   if (size_in_megabytes > 5) {
     alert('Maximum file size is 5MB. Please choose a smaller file.');
   }
+});
+
+if($('#textarea').val() ==  "")
+   $('#post').attr('disabled', true);
+
+$('#textarea').keyup(function(){
+      if($('#textarea').val() !=  "")
+           $('#post').attr('disabled', false);
+  else
+     $('#post').attr('disabled', true);
 });
 </script>
