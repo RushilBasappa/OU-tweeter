@@ -25,12 +25,8 @@
               <%= render 'shared/micropost_form' %>
             </div>
           </div>
-
         </div>
       </div>
-
-
-
       <section class="micropost_form">
       </section>
     </aside>
@@ -40,6 +36,8 @@
     </div>
   </div>
 <% else %>
-
+  <div class="jumbotron center">
+    <p>Welcome to twitter</p>
   <%= link_to "Sign up now!", signup_path , class: "btn btn-lg btn-primary" %>
+  </div>
 <%end%>
