@@ -15,3 +15,23 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+//
+//
+
+var jumboHeight = $('.jumbotron').Height;
+function parallax(){
+  var scrolled = $(window).scrollTop();
+
+  $('.bg').css('height', (676 - scrolled) + 'px');
+
+  if(scrolled>=625){
+    $('#head').addClass('navbar-inverse');
+  }
+  else{
+    $('#head').removeClass('navbar-inverse');
+  }
+}
+
+$(window).scroll(function(e){
+  parallax();
+});
