@@ -1,0 +1,14 @@
+<h1>Contact</h1>
+<div class="row stylish-panel">
+  <% @admins.each do |admin| %>
+    <div class="col-md-4">
+      <div>
+        <%= gravatar_admin(admin,200) %>
+        <h2>Webdesigner</h2>
+        <a href="#" class="btn btn-primary" title="See more">See works »</a>
+      </div>
+    </div>
+  <% end %>
+</div>
+<p>
+</p>

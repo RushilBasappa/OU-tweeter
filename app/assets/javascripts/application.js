@@ -19,6 +19,7 @@
 //
 
 var jumboHeight = $('.jumbotron').Height;
+
 function parallax(){
   var scrolled = $(window).scrollTop();
 
