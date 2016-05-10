@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :admin_user,   only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).order('name')
   end
   def show
     @user = User.find(params[:id])
@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.name = @user.name.titlecase
     if @user.save
       @user.send_activation_email 
       flash[:info] = "Please check your email to activate your account."

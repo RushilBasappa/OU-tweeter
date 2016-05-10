@@ -21,3 +21,10 @@ User.create!(name:  "Sashank",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+User.create!(name:  "ashank",
+             email: "hallasashank@gmail.com",
+             password:              "12345678",
+             password_confirmation: "12345678",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
