@@ -1,4 +1,4 @@
-<h1>Contact</h1>
+<h1>Project by: </h1>
 <div class="row stylish-panel">
   <% @admins.each do |admin| %>
     <div class="col-md-4">
@@ -6,7 +6,6 @@
         <div>
           <%= gravatar_for_profile_card(admin,200) %>
           <h2><%= admin.name %></h2>
-          <h2>Webdesigner</h2>
         </div>
       </div>
     </div>
