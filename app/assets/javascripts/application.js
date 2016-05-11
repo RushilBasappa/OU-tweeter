@@ -15,8 +15,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-//
-//
 
 var jumboHeight = $('.jumbotron').Height;
 
@@ -35,4 +33,10 @@ function parallax(){
 
 $(window).scroll(function(e){
   parallax();
+});
+
+$('document').ready(function(){
+  setTimeout(function(){
+    $('#flash').slideUp();
+  },5000);
 });
