@@ -1,4 +1,4 @@
-User.create!(name:  "Rushil",
+User.create!(name:  "Rushil Basappa",
              email: "rushirocks2212@gmail.com",
              password:              "12345678",
              password_confirmation: "12345678",
@@ -14,7 +14,7 @@ User.create!(name:  "Sai Chander",
              activated: true,
              activated_at: Time.zone.now)
 
-User.create!(name:  "Sashank",
+User.create!(name:  "Sashank Challa",
              email: "challasashank@gmail.com",
              password:              "12345678",
              password_confirmation: "12345678",

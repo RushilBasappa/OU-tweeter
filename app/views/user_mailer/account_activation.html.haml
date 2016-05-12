@@ -1,0 +1,9 @@
+%h1 Osm Tweets
+%p
+  Hi #{@user.name},
+%p
+  Welcome to the
+  = succeed "!" do
+    %strong Osm-Tweets
+= link_to "Activate", edit_account_activation_url(@user.activation_token, |
+  email: @user.email)                                                     |

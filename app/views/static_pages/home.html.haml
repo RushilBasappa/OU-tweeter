@@ -1,0 +1,29 @@
+- if logged_in?
+  .row
+    %aside.col-md-3.card.profile-card
+      %section.user_info
+        = render 'shared/user_info'
+      %section.stats
+        = render 'shared/stats'
+      %button.btn.btn-info.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"} Compose tweet
+      #myModal.modal.fade{:role => "dialog"}
+        .modal-dialog
+          .modal-content
+            .modal-header
+              %button.close{"data-dismiss" => "modal", :type => "button"} ×
+              %h4.modal-title Compose new tweet
+            .modal-body
+              = render 'shared/micropost_form'
+      %section.micropost_form
+    .col-md-9
+      .cardtweet
+        %h3 Tweet Feed
+      = render 'shared/feed'
+- else
+  .bg
+  .jumbotron.center
+    %h1 Osm Tweets
+    = link_to "Sign up now!", signup_path , class: "btn btn-lg btn-primary"
+  .container
+    .row
+      = render 'cont'

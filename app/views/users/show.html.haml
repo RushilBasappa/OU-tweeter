@@ -1,0 +1,36 @@
+%div
+  .row.card
+    .col-md-3
+    .col-md-7
+      %ul.nav.nav-tabs
+        %li.active
+          = link_to user_path, :class => "text_center" do
+            %span Tweets
+            %br/
+            %span= @user.microposts.count
+        %li
+          = link_to followers_user_path, :class => "text_center"  do
+            %span Followers
+            %br/
+            %span= @user.followers.count
+        %li
+          = link_to following_user_path, :class => "text_center"  do
+            %span Following
+            %br/
+            %span= @user.following.count
+.row
+  %aside.col-md-3.cardtweet
+    %section.user_info
+      = gravatar_for @user,200
+    %section.stats
+      = @user.name
+      = render 'shared/stats'
+  .col-md-9
+    = render 'follow_form' if logged_in?
+    - if @user.microposts.any?
+      %ol.microposts
+        = render @microposts
+      = will_paginate @microposts
+    - else
+      .cardtweet
+        %h2 No tweets yet!!

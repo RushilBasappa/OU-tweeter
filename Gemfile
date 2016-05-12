@@ -20,8 +20,10 @@ gem 'rename'
 gem 'tabs_on_rails', '~> 2.2'
 gem 'fog-aws'
 gem 'jquery-turbolinks'
+gem 'haml'
 
 group :development, :test do
+  gem "erb2haml"
   gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'

@@ -1,0 +1,15 @@
+%h1 Project by:
+.row.stylish-panel
+  - @admins.each do |admin|
+    .col-md-4
+      .col-md-10.col-md-offset-1
+        %div
+          = gravatar_for_profile_card(admin,200)
+          %h2= admin.name
+          -if admin.name == "Rushil Basappa"
+            %h4 100512733037
+          -elsif admin.name == "Sai Chander"
+            %h4 100512733039
+          -elsif admin.name == "Chekke Challa"
+            %h4 100512733045
+%p
