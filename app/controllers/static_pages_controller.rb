@@ -12,6 +12,6 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
-    @admins = User.all.where(:admin => true)
+    @admins = User.all.where(:admin => true).order(:name)
   end
 end
