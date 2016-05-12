@@ -1,8 +1,10 @@
-<% if @feed_items.any? %>
-  <ol class="microposts">
-    <%= render @feed_items %>
-  </ol>
-  <%= will_paginate @feed_items %>
-<% else %>
-  <h2>No Tweets yet !!!</h2>
-<% end %>
+<div class="cardtweet">
+  <% if @feed_items.any? %>
+    <ol class="microposts">
+      <%= render @feed_items %>
+    </ol>
+    <%= will_paginate @feed_items %>
+  <% else %>
+    <h2>No Tweets yet !!!</h2>
+  <% end %>
+</div>

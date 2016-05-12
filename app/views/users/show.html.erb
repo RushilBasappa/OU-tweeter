@@ -37,12 +37,12 @@
       <%= @user.name %>
       <%= render 'shared/stats' %>
     </section>
-
   </aside>
+
   <div class="col-md-7">
     <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
-      <div class="block">
+      <div class="cardtweet">
         <h3>Microposts (<%= @user.microposts.count %>)</h3>
         <ol class="microposts">
           <%= render @microposts %>

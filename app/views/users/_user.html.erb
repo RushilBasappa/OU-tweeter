@@ -1,6 +1,9 @@
 <li class="col-md-3 stylish-panel list-unstyled" >
   <%= gravatar_for_profile_card user,150 %>
   <h3 class="usercard"><%= link_to user.name, user%></h3>
+  <% if params[:action]!="index" %>
+    <%= render 'follow_form' if logged_in? %>
+  <% end %>
   <% if current_user.admin? && !current_user?(user) %>
     <%= link_to  user, method: :delete, data: { confirm: "You sure?" } do%>
       <span><i class="glyphicon glyphicon-trash"></i></span>
