@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   config.fog_credentials = {
-    provider:              'AWS',
-    aws_access_key_id:     'AKIAIX4ZPUFKPNZTLUCA',
-    aws_secret_access_key: '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'
+    provider:               'AWS',
+    aws_access_key_id:      ENV["S3_KEY"],
+    aws_secret_access_key:  ENV["S3_SECRET"]
   }
   config.fog_directory  = 'osmtweet-images'
 end
