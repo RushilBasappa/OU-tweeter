@@ -239,16 +239,11 @@ input {
 
 
 /* microposts */
-#micropost-1{
-  border-bottom: none;
-}
-
 .microposts {
   list-style: none;
   padding: 0;
   li {
     padding: 20px 0;
-    /*border-bottom: 1px solid #e8e8e8;*/
   }
   .user {
     margin-top: 5em;
