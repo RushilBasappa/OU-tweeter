@@ -1,8 +1,6 @@
 %li.col-md-3.stylish-panel.list-unstyled
   = gravatar_for_profile_card user,150
   %h3.usercard= link_to user.name, user
-  - if params[:action]!="index"
-    = render 'follow_form' if logged_in?
   - if current_user.admin? && !current_user?(user)
     = link_to  user, method: :delete, data: { confirm: "You sure?" } do
       %span
