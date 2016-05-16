@@ -1,6 +1,6 @@
 .bg {
   background: url('/assets/bg_blueplane.jpg') no-repeat 68% 13%;
-  background-size: 100%;
+  background-size: cover;
   position: fixed !important;
   position: relative;
   top:0;
@@ -12,7 +12,8 @@
 }
 
 .jumbotron {
-  height: 676px;
+  height: 600px;
+  padding:50px 0 0 0 !important;
   color: white;
   text-shadow: #444 0 1px 1px;
   background:transparent;
@@ -20,4 +21,8 @@
 
 .btn-info{
   margin: 22px 45px;
+}
+.contenttitle{
+    font-size: 100px !important;
+    line-height: 1.4;
 }

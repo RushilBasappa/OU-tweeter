@@ -22,8 +22,20 @@
 - else
   .bg
   .jumbotron.center
-    %h1 Osm Posts
-    = link_to "Sign up now!", signup_path , class: "btn btn-lg btn-primary"
-  .container
-    .row
-      = render 'cont'
+    %h1.contenttitle Osm Posts
+    %h3 Post . Update . Follow
+    = link_to "Sign up now!", signup_path , class: "btn btn-lg btn-warning"
+  .row.cardtweet
+    .col-md-7
+      %h2 Compost MicroPosts
+      %blockquote.h3 Get in the moment to update on things that interests you.
+    .col-md-5
+      =image_tag("tweet.jpg",width: "392px",height:"324px")
+  .row.cardtweet
+    .col-md-5
+      =image_tag("follow.jpg",width: "392px",height:"324px")
+    .col-md-7
+      %h2 Follow your Interests
+      %blockquote.h3 Follow / Unfollow people to get to know about their status in an instant.
+  .row.cardtweet
+    = render 'cont'
